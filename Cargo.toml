@@ -2,5 +2,44 @@
 name = "glfw_rust_sys"
 version = "0.1.0"
 edition = "2021"
+links = "glfw"
+
+[features]
+default = ["x11", "wayland", "gl"]
+# static link
+static_link = []
+gl = []
+
+# generate bindings at build time. 
+bindings = ["dep:bindgen"]
+
+
+# enable vulkan support for convenient create surface function
+vulkan = ["bindings"]
+# enable wayland handles
+wayland = []
+# enable x11 handles
+x11 = []
+
+# native handles like window id or display connection
+# useful for raw-window-handle support.
+# includes win32 for windows, ns handle for mac
+# x11/wayland for linux decided by separate features. 
+native_handles = ["bindings"]
+
+# expose native gl context. wgl for windows. nsgl for mac. glx for x11. egl for wayland.
+native_gl = [] 
+# explicitly enable egl. useful when you want to choose between glx or egl for x11 at runtime.
+egl = ["native_handles", "native_gl"]
+
+
+# I have no idea what osmesa is.
+osmesa = ["native_handles"]
+# build from source, instead of using prebuilt libraries.
+src_build = ["dep:cmake"]
 
 [dependencies]
+
+[build-dependencies]
+bindgen = {version = "0.71", optional = true}
+cmake = {version = "0.1", optional = true}

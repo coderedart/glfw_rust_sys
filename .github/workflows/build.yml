@@ -1,0 +1,22 @@
+name: Build
+on:
+  push:
+    branches: master
+
+jobs:
+  build:
+    name: Build
+    strategy:
+      matrix: 
+        os: [ubuntu, macos, windows]
+    runs-on: ${{ matrix.os }}-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install dependencies
+        if: matrix.os == 'ubuntu'
+        run: |
+          sudo apt update
+          sudo apt install libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev libwayland-dev libxkbcommon-dev
+      - name: Run Cargo
+        run: cargo run --example=version --features=src_build,static_link
+      
