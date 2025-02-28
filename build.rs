@@ -28,6 +28,8 @@ fn main() {
         TargetOs::Win => {
             println!("cargo:rustc-link-lib=dylib=gdi32");
             println!("cargo:rustc-link-lib=dylib=user32");
+            println!("cargo:rustc-link-lib=dylib=kernel32");
+            println!("cargo:rustc-link-lib=dylib=shell32");
         }
         TargetOs::Mac => {
             println!("cargo:rustc-link-lib=framework=Cocoa");
