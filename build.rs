@@ -21,7 +21,7 @@ fn main() {
         if features.os != TargetOs::Win {
             println!("cargo:rustc-link-lib=dylib=glfw");
         } else {
-            println!("cargo:rustc-link-lib=dylib=glfw3");
+            println!("cargo:rustc-link-lib=dylib=glfw3dll");
         }
     }
     match features.os {
@@ -117,6 +117,12 @@ fn build_from_src(features: Features, _out_dir: &str) {
         "cargo:rustc-link-search=native={}",
         dst_dir.join("lib").display()
     );
+    if !features.static_link && features.os == TargetOs::Win {
+        println!(
+            "cargo:rustc-link-search=native={}",
+            dst_dir.join("bin").display()
+        );
+    }
 }
 #[cfg(feature = "bindings")]
 fn generate_bindings(features: Features, out_dir: &str) {
