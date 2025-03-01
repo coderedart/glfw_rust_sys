@@ -10,8 +10,6 @@ jobs:
       matrix: 
         os: [ubuntu, macos, windows]
     runs-on: ${{ matrix.os }}-latest
-    env:
-      CARGO_TERM_VERBOSE: true
     steps:
       - uses: actions/checkout@v4
         with:
@@ -23,16 +21,16 @@ jobs:
           sudo apt install libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev libwayland-dev libxkbcommon-dev
       - name: Source Static Build
         shell: bash
-        run: cargo clean && cargo run --example=version --features=src_build,static_link
+        run: cargo clean && cargo run -vv --example=version --features=src_build,static_link
       
       - name: Source Shared Build
         shell: bash
-        run: cargo clean && cargo run --example=version --features=src_build
+        run: cargo clean && cargo run -vv --example=version --features=src_build
 
       - name: Prebuilt Libs Static
         shell: bash
         if: matrix.os != 'ubuntu'
-        run: cargo clean && cargo run --example=version --features=static_link
+        run: cargo clean && cargo run -vv --example=version --features=static_link
       
       - name: Install Glfw Packages
         if: matrix.os == 'ubuntu'
@@ -41,9 +39,9 @@ jobs:
 
       - name: Prebuilt Libs Shared
         shell: bash
-        run: cargo clean && cargo run --example=version
+        run: cargo clean && cargo run -vv --example=version
       
       - name: Generate Bindings
         shell: bash
-        run: cargo clean && cargo run --example=version --features=bindings
+        run: cargo clean && cargo run -vv --example=version --features=bindings
       
