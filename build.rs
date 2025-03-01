@@ -263,6 +263,7 @@ fn download_libs(features: Features, out_dir: &str) {
         }
         TargetOs::Mac => {
             let lib_dir = lib_dir.join("lib-universal");
+            // hack because mac fails to recognize libglfw.3.dylib with -lglfw flag
             std::fs::copy(
                 lib_dir.join("libglfw.3.dylib"),
                 lib_dir.join("libglfw.dylib"),

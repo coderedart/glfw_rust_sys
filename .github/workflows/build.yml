@@ -45,5 +45,5 @@ jobs:
       
       - name: Generate Bindings
         shell: bash
-        run: cargo clean && cargo run -vv--example=version --features=bindings
+        run: cargo clean && cargo run -vv --example=version --features=bindings
       
