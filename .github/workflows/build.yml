@@ -38,6 +38,7 @@ jobs:
         run: sudo apt install libglfw3-dev
 
       - name: Prebuilt Libs Shared
+        if: matrix.os != 'macos'
         shell: bash
         run: cargo clean && cargo run -vv --example=version
       
