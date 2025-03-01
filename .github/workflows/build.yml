@@ -41,7 +41,7 @@ jobs:
 
       - name: Prebuilt Libs Shared
         shell: bash
-        run: cargo clean && cargo run -vv --example=version
+        run: cargo clean && cargo run -vv --example=version && cargo build -vv --examples
       
       - name: Prepare Vulkan SDK
         uses: humbletim/setup-vulkan-sdk@v1.2.0
