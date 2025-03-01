@@ -417,12 +417,12 @@ pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_DEVICE: VkSystemAll
 pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE: VkSystemAllocationScope = 4;
 pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_MAX_ENUM: VkSystemAllocationScope =
     2147483647;
-pub type VkSystemAllocationScope = ::std::os::raw::c_int;
+pub type VkSystemAllocationScope = ::std::os::raw::c_uint;
 pub const VkInternalAllocationType_VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE:
     VkInternalAllocationType = 0;
 pub const VkInternalAllocationType_VK_INTERNAL_ALLOCATION_TYPE_MAX_ENUM: VkInternalAllocationType =
     2147483647;
-pub type VkInternalAllocationType = ::std::os::raw::c_int;
+pub type VkInternalAllocationType = ::std::os::raw::c_uint;
 pub type PFN_vkAllocationFunction = ::std::option::Option<
     unsafe extern "C" fn(
         pUserData: *mut ::std::os::raw::c_void,
