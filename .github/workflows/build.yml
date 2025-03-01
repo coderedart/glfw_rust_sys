@@ -10,6 +10,8 @@ jobs:
       matrix: 
         os: [ubuntu, macos, windows]
     runs-on: ${{ matrix.os }}-latest
+    env:
+      CARGO_TERM_VERBOSE: true
     steps:
       - uses: actions/checkout@v4
         with:
@@ -38,11 +40,10 @@ jobs:
         run: sudo apt install libglfw3-dev
 
       - name: Prebuilt Libs Shared
-        if: matrix.os != 'macos'
         shell: bash
         run: cargo clean && cargo run -vv --example=version
       
       - name: Generate Bindings
         shell: bash
-        run: cargo clean && cargo run -vv --example=version --features=bindings
+        run: cargo clean && cargo run -vv--example=version --features=bindings
       

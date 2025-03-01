@@ -262,10 +262,13 @@ fn download_libs(features: Features, out_dir: &str) {
             );
         }
         TargetOs::Mac => {
-            println!(
-                "cargo:rustc-link-search=native={}",
-                lib_dir.join("lib-universal").display()
-            );
+            let lib_dir = lib_dir.join("lib-universal");
+            std::fs::copy(
+                lib_dir.join("libglfw.3.dylib"),
+                lib_dir.join("libglfw.dylib"),
+            )
+            .expect("failed to copy libglfw.3.dylib to libglfw.dylib");
+            println!("cargo:rustc-link-search=native={}", lib_dir.display());
         }
         _ => {
             unimplemented!()
