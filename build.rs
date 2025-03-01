@@ -188,9 +188,14 @@ fn generate_bindings(features: Features, out_dir: &str) {
             }
         };
     }
+    // if we don't define this, on some platforms (like mac),
+    // glfw will include gl.h by default, which is not something we want
+    let gl_include = "#define GLFW_INCLUDE_NONE";
     bindings = bindings.header_contents(
         "glfw3.h",
-        &format!("{vulkan_include}\n{glfw_header}\n{native_include}\n{glfw_native_header}"),
+        &format!(
+            "{vulkan_include}\n{gl_include}\n{glfw_header}\n{native_include}\n{glfw_native_header}"
+        ),
     );
     const DUPLICATE_ITEMS: &[&str] = &[
         "FP_NAN",
