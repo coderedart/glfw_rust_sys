@@ -133,10 +133,13 @@ fn generate_bindings(features: Features, out_dir: &str) {
     let mut bindings = bindgen::Builder::default();
     let vulkan_include = if features.vulkan {
         match features.os {
-            TargetOs::Win => {
+            TargetOs::Win | TargetOs::Mac => {
                 let vulkan_sdk_dir =
                     std::env::var("VULKAN_SDK").expect("failed to get vulkan sdk dir");
-                bindings = bindings.clang_arg(format!("-I{vulkan_sdk_dir}/Include"));
+                if !std::path::Path::new(&vulkan_sdk_dir).exists() {
+                    println!("cargo:warning=missing vulkan sdk dir {vulkan_sdk_dir} for vulkan.h");
+                }
+                bindings = bindings.clang_arg(format!("-I{vulkan_sdk_dir}/include"));
             }
             _ => {}
         };
