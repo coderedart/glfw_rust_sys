@@ -19,9 +19,29 @@ jobs:
         run: |
           sudo apt update
           sudo apt install libxrandr-dev libxinerama-dev libxcursor-dev libxi-dev libxext-dev libwayland-dev libxkbcommon-dev
-      - name: Run Static Link
+      - name: Source Static Build
         shell: bash
         run: cargo clean && cargo run --example=version --features=src_build,static_link
-      - name: Run Shared Link
+      
+      - name: Source Shared Build
+        shell: bash
         run: cargo clean && cargo run --example=version --features=src_build
+
+      - name: Prebuilt Libs Static
+        shell: bash
+        if: matrix.os != 'ubuntu'
+        run: cargo clean && cargo run --example=version --features=static_link
+      
+      - name: Install Glfw Packages
+        if: matrix.os == 'ubuntu'
+        shell: bash
+        run: sudo apt install libglfw3-dev
+
+      - name: Prebuilt Libs Shared
+        shell: bash
+        run: cargo clean && cargo run --example=version
+      
+      - name: Generate Bindings
+        shell: bash
+        run: cargo clean && cargo run --example=version --features=bindings
       

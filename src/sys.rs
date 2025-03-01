@@ -5,105 +5,6 @@
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
 
-pub const _STDINT_H: u32 = 1;
-pub const _FEATURES_H: u32 = 1;
-pub const _DEFAULT_SOURCE: u32 = 1;
-pub const __GLIBC_USE_ISOC2Y: u32 = 0;
-pub const __GLIBC_USE_ISOC23: u32 = 0;
-pub const __USE_ISOC11: u32 = 1;
-pub const __USE_ISOC99: u32 = 1;
-pub const __USE_ISOC95: u32 = 1;
-pub const __USE_POSIX_IMPLICITLY: u32 = 1;
-pub const _POSIX_SOURCE: u32 = 1;
-pub const _POSIX_C_SOURCE: u32 = 200809;
-pub const __USE_POSIX: u32 = 1;
-pub const __USE_POSIX2: u32 = 1;
-pub const __USE_POSIX199309: u32 = 1;
-pub const __USE_POSIX199506: u32 = 1;
-pub const __USE_XOPEN2K: u32 = 1;
-pub const __USE_XOPEN2K8: u32 = 1;
-pub const _ATFILE_SOURCE: u32 = 1;
-pub const __WORDSIZE: u32 = 64;
-pub const __WORDSIZE_TIME64_COMPAT32: u32 = 1;
-pub const __SYSCALL_WORDSIZE: u32 = 64;
-pub const __TIMESIZE: u32 = 64;
-pub const __USE_TIME_BITS64: u32 = 1;
-pub const __USE_MISC: u32 = 1;
-pub const __USE_ATFILE: u32 = 1;
-pub const __USE_FORTIFY_LEVEL: u32 = 0;
-pub const __GLIBC_USE_DEPRECATED_GETS: u32 = 0;
-pub const __GLIBC_USE_DEPRECATED_SCANF: u32 = 0;
-pub const __GLIBC_USE_C23_STRTOL: u32 = 0;
-pub const _STDC_PREDEF_H: u32 = 1;
-pub const __STDC_IEC_559__: u32 = 1;
-pub const __STDC_IEC_60559_BFP__: u32 = 201404;
-pub const __STDC_IEC_559_COMPLEX__: u32 = 1;
-pub const __STDC_IEC_60559_COMPLEX__: u32 = 201404;
-pub const __STDC_ISO_10646__: u32 = 201706;
-pub const __GNU_LIBRARY__: u32 = 6;
-pub const __GLIBC__: u32 = 2;
-pub const __GLIBC_MINOR__: u32 = 41;
-pub const _SYS_CDEFS_H: u32 = 1;
-pub const __glibc_c99_flexarr_available: u32 = 1;
-pub const __LDOUBLE_REDIRECTS_TO_FLOAT128_ABI: u32 = 0;
-pub const __HAVE_GENERIC_SELECTION: u32 = 1;
-pub const __GLIBC_USE_LIB_EXT2: u32 = 0;
-pub const __GLIBC_USE_IEC_60559_BFP_EXT: u32 = 0;
-pub const __GLIBC_USE_IEC_60559_BFP_EXT_C23: u32 = 0;
-pub const __GLIBC_USE_IEC_60559_EXT: u32 = 0;
-pub const __GLIBC_USE_IEC_60559_FUNCS_EXT: u32 = 0;
-pub const __GLIBC_USE_IEC_60559_FUNCS_EXT_C23: u32 = 0;
-pub const __GLIBC_USE_IEC_60559_TYPES_EXT: u32 = 0;
-pub const _BITS_TYPES_H: u32 = 1;
-pub const _BITS_TYPESIZES_H: u32 = 1;
-pub const __OFF_T_MATCHES_OFF64_T: u32 = 1;
-pub const __INO_T_MATCHES_INO64_T: u32 = 1;
-pub const __RLIM_T_MATCHES_RLIM64_T: u32 = 1;
-pub const __STATFS_MATCHES_STATFS64: u32 = 1;
-pub const __KERNEL_OLD_TIMEVAL_MATCHES_TIMEVAL64: u32 = 1;
-pub const __FD_SETSIZE: u32 = 1024;
-pub const _BITS_TIME64_H: u32 = 1;
-pub const _BITS_WCHAR_H: u32 = 1;
-pub const _BITS_STDINT_INTN_H: u32 = 1;
-pub const _BITS_STDINT_UINTN_H: u32 = 1;
-pub const _BITS_STDINT_LEAST_H: u32 = 1;
-pub const INT8_MIN: i32 = -128;
-pub const INT16_MIN: i32 = -32768;
-pub const INT32_MIN: i32 = -2147483648;
-pub const INT8_MAX: u32 = 127;
-pub const INT16_MAX: u32 = 32767;
-pub const INT32_MAX: u32 = 2147483647;
-pub const UINT8_MAX: u32 = 255;
-pub const UINT16_MAX: u32 = 65535;
-pub const UINT32_MAX: u32 = 4294967295;
-pub const INT_LEAST8_MIN: i32 = -128;
-pub const INT_LEAST16_MIN: i32 = -32768;
-pub const INT_LEAST32_MIN: i32 = -2147483648;
-pub const INT_LEAST8_MAX: u32 = 127;
-pub const INT_LEAST16_MAX: u32 = 32767;
-pub const INT_LEAST32_MAX: u32 = 2147483647;
-pub const UINT_LEAST8_MAX: u32 = 255;
-pub const UINT_LEAST16_MAX: u32 = 65535;
-pub const UINT_LEAST32_MAX: u32 = 4294967295;
-pub const INT_FAST8_MIN: i32 = -128;
-pub const INT_FAST16_MIN: i64 = -9223372036854775808;
-pub const INT_FAST32_MIN: i64 = -9223372036854775808;
-pub const INT_FAST8_MAX: u32 = 127;
-pub const INT_FAST16_MAX: u64 = 9223372036854775807;
-pub const INT_FAST32_MAX: u64 = 9223372036854775807;
-pub const UINT_FAST8_MAX: u32 = 255;
-pub const UINT_FAST16_MAX: i32 = -1;
-pub const UINT_FAST32_MAX: i32 = -1;
-pub const INTPTR_MIN: i64 = -9223372036854775808;
-pub const INTPTR_MAX: u64 = 9223372036854775807;
-pub const UINTPTR_MAX: i32 = -1;
-pub const PTRDIFF_MIN: i64 = -9223372036854775808;
-pub const PTRDIFF_MAX: u64 = 9223372036854775807;
-pub const SIG_ATOMIC_MIN: i32 = -2147483648;
-pub const SIG_ATOMIC_MAX: u32 = 2147483647;
-pub const SIZE_MAX: i32 = -1;
-pub const WINT_MIN: u32 = 0;
-pub const WINT_MAX: u32 = 4294967295;
 pub const GLFW_VERSION_MAJOR: u32 = 3;
 pub const GLFW_VERSION_MINOR: u32 = 4;
 pub const GLFW_VERSION_REVISION: u32 = 0;
@@ -436,115 +337,172 @@ pub const GLFW_PLATFORM_WAYLAND: u32 = 393219;
 pub const GLFW_PLATFORM_X11: u32 = 393220;
 pub const GLFW_PLATFORM_NULL: u32 = 393221;
 pub const GLFW_DONT_CARE: i32 = -1;
-pub type wchar_t = ::std::os::raw::c_int;
 #[repr(C)]
-#[repr(align(16))]
 #[derive(Debug, Copy, Clone)]
-pub struct max_align_t {
-    pub __clang_max_align_nonce1: ::std::os::raw::c_longlong,
-    pub __bindgen_padding_0: u64,
-    pub __clang_max_align_nonce2: u128,
+pub struct VkInstance_T {
+    _unused: [u8; 0],
+}
+pub type VkInstance = *mut VkInstance_T;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct VkPhysicalDevice_T {
+    _unused: [u8; 0],
+}
+pub type VkPhysicalDevice = *mut VkPhysicalDevice_T;
+pub const VkResult_VK_SUCCESS: VkResult = 0;
+pub const VkResult_VK_NOT_READY: VkResult = 1;
+pub const VkResult_VK_TIMEOUT: VkResult = 2;
+pub const VkResult_VK_EVENT_SET: VkResult = 3;
+pub const VkResult_VK_EVENT_RESET: VkResult = 4;
+pub const VkResult_VK_INCOMPLETE: VkResult = 5;
+pub const VkResult_VK_ERROR_OUT_OF_HOST_MEMORY: VkResult = -1;
+pub const VkResult_VK_ERROR_OUT_OF_DEVICE_MEMORY: VkResult = -2;
+pub const VkResult_VK_ERROR_INITIALIZATION_FAILED: VkResult = -3;
+pub const VkResult_VK_ERROR_DEVICE_LOST: VkResult = -4;
+pub const VkResult_VK_ERROR_MEMORY_MAP_FAILED: VkResult = -5;
+pub const VkResult_VK_ERROR_LAYER_NOT_PRESENT: VkResult = -6;
+pub const VkResult_VK_ERROR_EXTENSION_NOT_PRESENT: VkResult = -7;
+pub const VkResult_VK_ERROR_FEATURE_NOT_PRESENT: VkResult = -8;
+pub const VkResult_VK_ERROR_INCOMPATIBLE_DRIVER: VkResult = -9;
+pub const VkResult_VK_ERROR_TOO_MANY_OBJECTS: VkResult = -10;
+pub const VkResult_VK_ERROR_FORMAT_NOT_SUPPORTED: VkResult = -11;
+pub const VkResult_VK_ERROR_FRAGMENTED_POOL: VkResult = -12;
+pub const VkResult_VK_ERROR_UNKNOWN: VkResult = -13;
+pub const VkResult_VK_ERROR_OUT_OF_POOL_MEMORY: VkResult = -1000069000;
+pub const VkResult_VK_ERROR_INVALID_EXTERNAL_HANDLE: VkResult = -1000072003;
+pub const VkResult_VK_ERROR_FRAGMENTATION: VkResult = -1000161000;
+pub const VkResult_VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS: VkResult = -1000257000;
+pub const VkResult_VK_PIPELINE_COMPILE_REQUIRED: VkResult = 1000297000;
+pub const VkResult_VK_ERROR_NOT_PERMITTED: VkResult = -1000174001;
+pub const VkResult_VK_ERROR_SURFACE_LOST_KHR: VkResult = -1000000000;
+pub const VkResult_VK_ERROR_NATIVE_WINDOW_IN_USE_KHR: VkResult = -1000000001;
+pub const VkResult_VK_SUBOPTIMAL_KHR: VkResult = 1000001003;
+pub const VkResult_VK_ERROR_OUT_OF_DATE_KHR: VkResult = -1000001004;
+pub const VkResult_VK_ERROR_INCOMPATIBLE_DISPLAY_KHR: VkResult = -1000003001;
+pub const VkResult_VK_ERROR_VALIDATION_FAILED_EXT: VkResult = -1000011001;
+pub const VkResult_VK_ERROR_INVALID_SHADER_NV: VkResult = -1000012000;
+pub const VkResult_VK_ERROR_IMAGE_USAGE_NOT_SUPPORTED_KHR: VkResult = -1000023000;
+pub const VkResult_VK_ERROR_VIDEO_PICTURE_LAYOUT_NOT_SUPPORTED_KHR: VkResult = -1000023001;
+pub const VkResult_VK_ERROR_VIDEO_PROFILE_OPERATION_NOT_SUPPORTED_KHR: VkResult = -1000023002;
+pub const VkResult_VK_ERROR_VIDEO_PROFILE_FORMAT_NOT_SUPPORTED_KHR: VkResult = -1000023003;
+pub const VkResult_VK_ERROR_VIDEO_PROFILE_CODEC_NOT_SUPPORTED_KHR: VkResult = -1000023004;
+pub const VkResult_VK_ERROR_VIDEO_STD_VERSION_NOT_SUPPORTED_KHR: VkResult = -1000023005;
+pub const VkResult_VK_ERROR_INVALID_DRM_FORMAT_MODIFIER_PLANE_LAYOUT_EXT: VkResult = -1000158000;
+pub const VkResult_VK_ERROR_FULL_SCREEN_EXCLUSIVE_MODE_LOST_EXT: VkResult = -1000255000;
+pub const VkResult_VK_THREAD_IDLE_KHR: VkResult = 1000268000;
+pub const VkResult_VK_THREAD_DONE_KHR: VkResult = 1000268001;
+pub const VkResult_VK_OPERATION_DEFERRED_KHR: VkResult = 1000268002;
+pub const VkResult_VK_OPERATION_NOT_DEFERRED_KHR: VkResult = 1000268003;
+pub const VkResult_VK_ERROR_INVALID_VIDEO_STD_PARAMETERS_KHR: VkResult = -1000299000;
+pub const VkResult_VK_ERROR_COMPRESSION_EXHAUSTED_EXT: VkResult = -1000338000;
+pub const VkResult_VK_INCOMPATIBLE_SHADER_BINARY_EXT: VkResult = 1000482000;
+pub const VkResult_VK_PIPELINE_BINARY_MISSING_KHR: VkResult = 1000483000;
+pub const VkResult_VK_ERROR_NOT_ENOUGH_SPACE_KHR: VkResult = -1000483000;
+pub const VkResult_VK_ERROR_OUT_OF_POOL_MEMORY_KHR: VkResult = -1000069000;
+pub const VkResult_VK_ERROR_INVALID_EXTERNAL_HANDLE_KHR: VkResult = -1000072003;
+pub const VkResult_VK_ERROR_FRAGMENTATION_EXT: VkResult = -1000161000;
+pub const VkResult_VK_ERROR_NOT_PERMITTED_EXT: VkResult = -1000174001;
+pub const VkResult_VK_ERROR_NOT_PERMITTED_KHR: VkResult = -1000174001;
+pub const VkResult_VK_ERROR_INVALID_DEVICE_ADDRESS_EXT: VkResult = -1000257000;
+pub const VkResult_VK_ERROR_INVALID_OPAQUE_CAPTURE_ADDRESS_KHR: VkResult = -1000257000;
+pub const VkResult_VK_PIPELINE_COMPILE_REQUIRED_EXT: VkResult = 1000297000;
+pub const VkResult_VK_ERROR_PIPELINE_COMPILE_REQUIRED_EXT: VkResult = 1000297000;
+pub const VkResult_VK_ERROR_INCOMPATIBLE_SHADER_BINARY_EXT: VkResult = 1000482000;
+pub const VkResult_VK_RESULT_MAX_ENUM: VkResult = 2147483647;
+pub type VkResult = ::std::os::raw::c_int;
+pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_COMMAND: VkSystemAllocationScope = 0;
+pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_OBJECT: VkSystemAllocationScope = 1;
+pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_CACHE: VkSystemAllocationScope = 2;
+pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_DEVICE: VkSystemAllocationScope = 3;
+pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_INSTANCE: VkSystemAllocationScope = 4;
+pub const VkSystemAllocationScope_VK_SYSTEM_ALLOCATION_SCOPE_MAX_ENUM: VkSystemAllocationScope =
+    2147483647;
+pub type VkSystemAllocationScope = ::std::os::raw::c_int;
+pub const VkInternalAllocationType_VK_INTERNAL_ALLOCATION_TYPE_EXECUTABLE:
+    VkInternalAllocationType = 0;
+pub const VkInternalAllocationType_VK_INTERNAL_ALLOCATION_TYPE_MAX_ENUM: VkInternalAllocationType =
+    2147483647;
+pub type VkInternalAllocationType = ::std::os::raw::c_int;
+pub type PFN_vkAllocationFunction = ::std::option::Option<
+    unsafe extern "C" fn(
+        pUserData: *mut ::std::os::raw::c_void,
+        size: usize,
+        alignment: usize,
+        allocationScope: VkSystemAllocationScope,
+    ) -> *mut ::std::os::raw::c_void,
+>;
+pub type PFN_vkFreeFunction = ::std::option::Option<
+    unsafe extern "C" fn(
+        pUserData: *mut ::std::os::raw::c_void,
+        pMemory: *mut ::std::os::raw::c_void,
+    ),
+>;
+pub type PFN_vkInternalAllocationNotification = ::std::option::Option<
+    unsafe extern "C" fn(
+        pUserData: *mut ::std::os::raw::c_void,
+        size: usize,
+        allocationType: VkInternalAllocationType,
+        allocationScope: VkSystemAllocationScope,
+    ),
+>;
+pub type PFN_vkInternalFreeNotification = ::std::option::Option<
+    unsafe extern "C" fn(
+        pUserData: *mut ::std::os::raw::c_void,
+        size: usize,
+        allocationType: VkInternalAllocationType,
+        allocationScope: VkSystemAllocationScope,
+    ),
+>;
+pub type PFN_vkReallocationFunction = ::std::option::Option<
+    unsafe extern "C" fn(
+        pUserData: *mut ::std::os::raw::c_void,
+        pOriginal: *mut ::std::os::raw::c_void,
+        size: usize,
+        alignment: usize,
+        allocationScope: VkSystemAllocationScope,
+    ) -> *mut ::std::os::raw::c_void,
+>;
+pub type PFN_vkVoidFunction = ::std::option::Option<unsafe extern "C" fn()>;
+#[repr(C)]
+#[derive(Debug, Copy, Clone)]
+pub struct VkAllocationCallbacks {
+    pub pUserData: *mut ::std::os::raw::c_void,
+    pub pfnAllocation: PFN_vkAllocationFunction,
+    pub pfnReallocation: PFN_vkReallocationFunction,
+    pub pfnFree: PFN_vkFreeFunction,
+    pub pfnInternalAllocation: PFN_vkInternalAllocationNotification,
+    pub pfnInternalFree: PFN_vkInternalFreeNotification,
 }
 #[allow(clippy::unnecessary_operation, clippy::identity_op)]
 const _: () = {
-    ["Size of max_align_t"][::std::mem::size_of::<max_align_t>() - 32usize];
-    ["Alignment of max_align_t"][::std::mem::align_of::<max_align_t>() - 16usize];
-    ["Offset of field: max_align_t::__clang_max_align_nonce1"]
-        [::std::mem::offset_of!(max_align_t, __clang_max_align_nonce1) - 0usize];
-    ["Offset of field: max_align_t::__clang_max_align_nonce2"]
-        [::std::mem::offset_of!(max_align_t, __clang_max_align_nonce2) - 16usize];
+    ["Size of VkAllocationCallbacks"][::std::mem::size_of::<VkAllocationCallbacks>() - 48usize];
+    ["Alignment of VkAllocationCallbacks"]
+        [::std::mem::align_of::<VkAllocationCallbacks>() - 8usize];
+    ["Offset of field: VkAllocationCallbacks::pUserData"]
+        [::std::mem::offset_of!(VkAllocationCallbacks, pUserData) - 0usize];
+    ["Offset of field: VkAllocationCallbacks::pfnAllocation"]
+        [::std::mem::offset_of!(VkAllocationCallbacks, pfnAllocation) - 8usize];
+    ["Offset of field: VkAllocationCallbacks::pfnReallocation"]
+        [::std::mem::offset_of!(VkAllocationCallbacks, pfnReallocation) - 16usize];
+    ["Offset of field: VkAllocationCallbacks::pfnFree"]
+        [::std::mem::offset_of!(VkAllocationCallbacks, pfnFree) - 24usize];
+    ["Offset of field: VkAllocationCallbacks::pfnInternalAllocation"]
+        [::std::mem::offset_of!(VkAllocationCallbacks, pfnInternalAllocation) - 32usize];
+    ["Offset of field: VkAllocationCallbacks::pfnInternalFree"]
+        [::std::mem::offset_of!(VkAllocationCallbacks, pfnInternalFree) - 40usize];
 };
-pub type __u_char = ::std::os::raw::c_uchar;
-pub type __u_short = ::std::os::raw::c_ushort;
-pub type __u_int = ::std::os::raw::c_uint;
-pub type __u_long = ::std::os::raw::c_ulong;
-pub type __int8_t = ::std::os::raw::c_schar;
-pub type __uint8_t = ::std::os::raw::c_uchar;
-pub type __int16_t = ::std::os::raw::c_short;
-pub type __uint16_t = ::std::os::raw::c_ushort;
-pub type __int32_t = ::std::os::raw::c_int;
-pub type __uint32_t = ::std::os::raw::c_uint;
-pub type __int64_t = ::std::os::raw::c_long;
-pub type __uint64_t = ::std::os::raw::c_ulong;
-pub type __int_least8_t = __int8_t;
-pub type __uint_least8_t = __uint8_t;
-pub type __int_least16_t = __int16_t;
-pub type __uint_least16_t = __uint16_t;
-pub type __int_least32_t = __int32_t;
-pub type __uint_least32_t = __uint32_t;
-pub type __int_least64_t = __int64_t;
-pub type __uint_least64_t = __uint64_t;
-pub type __quad_t = ::std::os::raw::c_long;
-pub type __u_quad_t = ::std::os::raw::c_ulong;
-pub type __intmax_t = ::std::os::raw::c_long;
-pub type __uintmax_t = ::std::os::raw::c_ulong;
-pub type __dev_t = ::std::os::raw::c_ulong;
-pub type __uid_t = ::std::os::raw::c_uint;
-pub type __gid_t = ::std::os::raw::c_uint;
-pub type __ino_t = ::std::os::raw::c_ulong;
-pub type __ino64_t = ::std::os::raw::c_ulong;
-pub type __mode_t = ::std::os::raw::c_uint;
-pub type __nlink_t = ::std::os::raw::c_ulong;
-pub type __off_t = ::std::os::raw::c_long;
-pub type __off64_t = ::std::os::raw::c_long;
-pub type __pid_t = ::std::os::raw::c_int;
+pub type PFN_vkGetInstanceProcAddr = ::std::option::Option<
+    unsafe extern "C" fn(
+        instance: VkInstance,
+        pName: *const ::std::os::raw::c_char,
+    ) -> PFN_vkVoidFunction,
+>;
 #[repr(C)]
 #[derive(Debug, Copy, Clone)]
-pub struct __fsid_t {
-    pub __val: [::std::os::raw::c_int; 2usize],
+pub struct VkSurfaceKHR_T {
+    _unused: [u8; 0],
 }
-#[allow(clippy::unnecessary_operation, clippy::identity_op)]
-const _: () = {
-    ["Size of __fsid_t"][::std::mem::size_of::<__fsid_t>() - 8usize];
-    ["Alignment of __fsid_t"][::std::mem::align_of::<__fsid_t>() - 4usize];
-    ["Offset of field: __fsid_t::__val"][::std::mem::offset_of!(__fsid_t, __val) - 0usize];
-};
-pub type __clock_t = ::std::os::raw::c_long;
-pub type __rlim_t = ::std::os::raw::c_ulong;
-pub type __rlim64_t = ::std::os::raw::c_ulong;
-pub type __id_t = ::std::os::raw::c_uint;
-pub type __time_t = ::std::os::raw::c_long;
-pub type __useconds_t = ::std::os::raw::c_uint;
-pub type __suseconds_t = ::std::os::raw::c_long;
-pub type __suseconds64_t = ::std::os::raw::c_long;
-pub type __daddr_t = ::std::os::raw::c_int;
-pub type __key_t = ::std::os::raw::c_int;
-pub type __clockid_t = ::std::os::raw::c_int;
-pub type __timer_t = *mut ::std::os::raw::c_void;
-pub type __blksize_t = ::std::os::raw::c_long;
-pub type __blkcnt_t = ::std::os::raw::c_long;
-pub type __blkcnt64_t = ::std::os::raw::c_long;
-pub type __fsblkcnt_t = ::std::os::raw::c_ulong;
-pub type __fsblkcnt64_t = ::std::os::raw::c_ulong;
-pub type __fsfilcnt_t = ::std::os::raw::c_ulong;
-pub type __fsfilcnt64_t = ::std::os::raw::c_ulong;
-pub type __fsword_t = ::std::os::raw::c_long;
-pub type __ssize_t = ::std::os::raw::c_long;
-pub type __syscall_slong_t = ::std::os::raw::c_long;
-pub type __syscall_ulong_t = ::std::os::raw::c_ulong;
-pub type __loff_t = __off64_t;
-pub type __caddr_t = *mut ::std::os::raw::c_char;
-pub type __intptr_t = ::std::os::raw::c_long;
-pub type __socklen_t = ::std::os::raw::c_uint;
-pub type __sig_atomic_t = ::std::os::raw::c_int;
-pub type int_least8_t = __int_least8_t;
-pub type int_least16_t = __int_least16_t;
-pub type int_least32_t = __int_least32_t;
-pub type int_least64_t = __int_least64_t;
-pub type uint_least8_t = __uint_least8_t;
-pub type uint_least16_t = __uint_least16_t;
-pub type uint_least32_t = __uint_least32_t;
-pub type uint_least64_t = __uint_least64_t;
-pub type int_fast8_t = ::std::os::raw::c_schar;
-pub type int_fast16_t = ::std::os::raw::c_long;
-pub type int_fast32_t = ::std::os::raw::c_long;
-pub type int_fast64_t = ::std::os::raw::c_long;
-pub type uint_fast8_t = ::std::os::raw::c_uchar;
-pub type uint_fast16_t = ::std::os::raw::c_ulong;
-pub type uint_fast32_t = ::std::os::raw::c_ulong;
-pub type uint_fast64_t = ::std::os::raw::c_ulong;
-pub type intmax_t = __intmax_t;
-pub type uintmax_t = __uintmax_t;
+pub type VkSurfaceKHR = *mut VkSurfaceKHR_T;
 #[doc = " @brief Client API function pointer type.\n\n  Generic function pointer used for returning client API function pointers\n  without forcing a cast from a regular pointer.\n\n  @sa @ref context_glext\n  @sa @ref glfwGetProcAddress\n\n  @since Added in version 3.0.\n\n  @ingroup context"]
 pub type GLFWglproc = ::std::option::Option<unsafe extern "C" fn()>;
 #[doc = " @brief Vulkan API function pointer type.\n\n  Generic function pointer used for returning Vulkan API function pointers\n  without forcing a cast from a regular pointer.\n\n  @sa @ref vulkan_proc\n  @sa @ref glfwGetInstanceProcAddress\n\n  @since Added in version 3.2.\n\n  @ingroup vulkan"]
@@ -818,6 +776,8 @@ unsafe extern "C" {
     pub fn glfwInitHint(hint: ::std::os::raw::c_int, value: ::std::os::raw::c_int);
     #[doc = " @brief Sets the init allocator to the desired value.\n\n  To use the default allocator, call this function with a `NULL` argument.\n\n  If you specify an allocator struct, every member must be a valid function\n  pointer.  If any member is `NULL`, this function will emit @ref\n  GLFW_INVALID_VALUE and the init allocator will be unchanged.\n\n  The functions in the allocator must fulfil a number of requirements.  See the\n  documentation for @ref GLFWallocatefun, @ref GLFWreallocatefun and @ref\n  GLFWdeallocatefun for details.\n\n  @param[in] allocator The allocator to use at the next initialization, or\n  `NULL` to use the default one.\n\n  @errors Possible errors include @ref GLFW_INVALID_VALUE.\n\n  @pointer_lifetime The specified allocator is copied before this function\n  returns.\n\n  @thread_safety This function must only be called from the main thread.\n\n  @sa @ref init_allocator\n  @sa @ref glfwInit\n\n  @since Added in version 3.4.\n\n  @ingroup init"]
     pub fn glfwInitAllocator(allocator: *const GLFWallocator);
+    #[doc = " @brief Sets the desired Vulkan `vkGetInstanceProcAddr` function.\n\n  This function sets the `vkGetInstanceProcAddr` function that GLFW will use for all\n  Vulkan related entry point queries.\n\n  This feature is mostly useful on macOS, if your copy of the Vulkan loader is in\n  a location where GLFW cannot find it through dynamic loading, or if you are still\n  using the static library version of the loader.\n\n  If set to `NULL`, GLFW will try to load the Vulkan loader dynamically by its standard\n  name and get this function from there.  This is the default behavior.\n\n  The standard name of the loader is `vulkan-1.dll` on Windows, `libvulkan.so.1` on\n  Linux and other Unix-like systems and `libvulkan.1.dylib` on macOS.  If your code is\n  also loading it via these names then you probably don't need to use this function.\n\n  The function address you set is never reset by GLFW, but it only takes effect during\n  initialization.  Once GLFW has been initialized, any updates will be ignored until the\n  library is terminated and initialized again.\n\n  @param[in] loader The address of the function to use, or `NULL`.\n\n  @par Loader function signature\n  @code\n  PFN_vkVoidFunction vkGetInstanceProcAddr(VkInstance instance, const char* name)\n  @endcode\n  For more information about this function, see the\n  [Vulkan Registry](https://www.khronos.org/registry/vulkan/).\n\n  @errors None.\n\n  @remark This function may be called before @ref glfwInit.\n\n  @thread_safety This function must only be called from the main thread.\n\n  @sa @ref vulkan_loader\n  @sa @ref glfwInit\n\n  @since Added in version 3.4.\n\n  @ingroup init"]
+    pub fn glfwInitVulkanLoader(loader: PFN_vkGetInstanceProcAddr);
     #[doc = " @brief Retrieves the version of the GLFW library.\n\n  This function retrieves the major, minor and revision numbers of the GLFW\n  library.  It is intended for when you are using GLFW as a shared library and\n  want to ensure that you are using the minimum required version.\n\n  Any or all of the version arguments may be `NULL`.\n\n  @param[out] major Where to store the major version number, or `NULL`.\n  @param[out] minor Where to store the minor version number, or `NULL`.\n  @param[out] rev Where to store the revision number, or `NULL`.\n\n  @errors None.\n\n  @remark This function may be called before @ref glfwInit.\n\n  @thread_safety This function may be called from any thread.\n\n  @sa @ref intro_version\n  @sa @ref glfwGetVersionString\n\n  @since Added in version 1.0.\n\n  @ingroup init"]
     pub fn glfwGetVersion(
         major: *mut ::std::os::raw::c_int,
@@ -1217,4 +1177,22 @@ unsafe extern "C" {
     #[doc = " @brief Returns the Vulkan instance extensions required by GLFW.\n\n  This function returns an array of names of Vulkan instance extensions required\n  by GLFW for creating Vulkan surfaces for GLFW windows.  If successful, the\n  list will always contain `VK_KHR_surface`, so if you don't require any\n  additional extensions you can pass this list directly to the\n  `VkInstanceCreateInfo` struct.\n\n  If Vulkan is not available on the machine, this function returns `NULL` and\n  generates a @ref GLFW_API_UNAVAILABLE error.  Call @ref glfwVulkanSupported\n  to check whether Vulkan is at least minimally available.\n\n  If Vulkan is available but no set of extensions allowing window surface\n  creation was found, this function returns `NULL`.  You may still use Vulkan\n  for off-screen rendering and compute work.\n\n  @param[out] count Where to store the number of extensions in the returned\n  array.  This is set to zero if an error occurred.\n  @return An array of ASCII encoded extension names, or `NULL` if an\n  [error](@ref error_handling) occurred.\n\n  @errors Possible errors include @ref GLFW_NOT_INITIALIZED and @ref\n  GLFW_API_UNAVAILABLE.\n\n  @remark Additional extensions may be required by future versions of GLFW.\n  You should check if any extensions you wish to enable are already in the\n  returned array, as it is an error to specify an extension more than once in\n  the `VkInstanceCreateInfo` struct.\n\n  @pointer_lifetime The returned array is allocated and freed by GLFW.  You\n  should not free it yourself.  It is guaranteed to be valid only until the\n  library is terminated.\n\n  @thread_safety This function may be called from any thread.\n\n  @sa @ref vulkan_ext\n  @sa @ref glfwCreateWindowSurface\n\n  @since Added in version 3.2.\n\n  @ingroup vulkan"]
     pub fn glfwGetRequiredInstanceExtensions(count: *mut u32)
         -> *mut *const ::std::os::raw::c_char;
+    #[doc = " @brief Returns the address of the specified Vulkan instance function.\n\n  This function returns the address of the specified Vulkan core or extension\n  function for the specified instance.  If instance is set to `NULL` it can\n  return any function exported from the Vulkan loader, including at least the\n  following functions:\n\n  - `vkEnumerateInstanceExtensionProperties`\n  - `vkEnumerateInstanceLayerProperties`\n  - `vkCreateInstance`\n  - `vkGetInstanceProcAddr`\n\n  If Vulkan is not available on the machine, this function returns `NULL` and\n  generates a @ref GLFW_API_UNAVAILABLE error.  Call @ref glfwVulkanSupported\n  to check whether Vulkan is at least minimally available.\n\n  This function is equivalent to calling `vkGetInstanceProcAddr` with\n  a platform-specific query of the Vulkan loader as a fallback.\n\n  @param[in] instance The Vulkan instance to query, or `NULL` to retrieve\n  functions related to instance creation.\n  @param[in] procname The ASCII encoded name of the function.\n  @return The address of the function, or `NULL` if an\n  [error](@ref error_handling) occurred.\n\n  @errors Possible errors include @ref GLFW_NOT_INITIALIZED and @ref\n  GLFW_API_UNAVAILABLE.\n\n  @pointer_lifetime The returned function pointer is valid until the library\n  is terminated.\n\n  @thread_safety This function may be called from any thread.\n\n  @sa @ref vulkan_proc\n\n  @since Added in version 3.2.\n\n  @ingroup vulkan"]
+    pub fn glfwGetInstanceProcAddress(
+        instance: VkInstance,
+        procname: *const ::std::os::raw::c_char,
+    ) -> GLFWvkproc;
+    #[doc = " @brief Returns whether the specified queue family can present images.\n\n  This function returns whether the specified queue family of the specified\n  physical device supports presentation to the platform GLFW was built for.\n\n  If Vulkan or the required window surface creation instance extensions are\n  not available on the machine, or if the specified instance was not created\n  with the required extensions, this function returns `GLFW_FALSE` and\n  generates a @ref GLFW_API_UNAVAILABLE error.  Call @ref glfwVulkanSupported\n  to check whether Vulkan is at least minimally available and @ref\n  glfwGetRequiredInstanceExtensions to check what instance extensions are\n  required.\n\n  @param[in] instance The instance that the physical device belongs to.\n  @param[in] device The physical device that the queue family belongs to.\n  @param[in] queuefamily The index of the queue family to query.\n  @return `GLFW_TRUE` if the queue family supports presentation, or\n  `GLFW_FALSE` otherwise.\n\n  @errors Possible errors include @ref GLFW_NOT_INITIALIZED, @ref\n  GLFW_API_UNAVAILABLE and @ref GLFW_PLATFORM_ERROR.\n\n  @remark @macos This function currently always returns `GLFW_TRUE`, as the\n  `VK_MVK_macos_surface` and `VK_EXT_metal_surface` extensions do not provide\n  a `vkGetPhysicalDevice*PresentationSupport` type function.\n\n  @thread_safety This function may be called from any thread.  For\n  synchronization details of Vulkan objects, see the Vulkan specification.\n\n  @sa @ref vulkan_present\n\n  @since Added in version 3.2.\n\n  @ingroup vulkan"]
+    pub fn glfwGetPhysicalDevicePresentationSupport(
+        instance: VkInstance,
+        device: VkPhysicalDevice,
+        queuefamily: u32,
+    ) -> ::std::os::raw::c_int;
+    #[doc = " @brief Creates a Vulkan surface for the specified window.\n\n  This function creates a Vulkan surface for the specified window.\n\n  If the Vulkan loader or at least one minimally functional ICD were not found,\n  this function returns `VK_ERROR_INITIALIZATION_FAILED` and generates a @ref\n  GLFW_API_UNAVAILABLE error.  Call @ref glfwVulkanSupported to check whether\n  Vulkan is at least minimally available.\n\n  If the required window surface creation instance extensions are not\n  available or if the specified instance was not created with these extensions\n  enabled, this function returns `VK_ERROR_EXTENSION_NOT_PRESENT` and\n  generates a @ref GLFW_API_UNAVAILABLE error.  Call @ref\n  glfwGetRequiredInstanceExtensions to check what instance extensions are\n  required.\n\n  The window surface cannot be shared with another API so the window must\n  have been created with the [client api hint](@ref GLFW_CLIENT_API_attrib)\n  set to `GLFW_NO_API` otherwise it generates a @ref GLFW_INVALID_VALUE error\n  and returns `VK_ERROR_NATIVE_WINDOW_IN_USE_KHR`.\n\n  The window surface must be destroyed before the specified Vulkan instance.\n  It is the responsibility of the caller to destroy the window surface.  GLFW\n  does not destroy it for you.  Call `vkDestroySurfaceKHR` to destroy the\n  surface.\n\n  @param[in] instance The Vulkan instance to create the surface in.\n  @param[in] window The window to create the surface for.\n  @param[in] allocator The allocator to use, or `NULL` to use the default\n  allocator.\n  @param[out] surface Where to store the handle of the surface.  This is set\n  to `VK_NULL_HANDLE` if an error occurred.\n  @return `VK_SUCCESS` if successful, or a Vulkan error code if an\n  [error](@ref error_handling) occurred.\n\n  @errors Possible errors include @ref GLFW_NOT_INITIALIZED, @ref\n  GLFW_API_UNAVAILABLE, @ref GLFW_PLATFORM_ERROR and @ref GLFW_INVALID_VALUE\n\n  @remark If an error occurs before the creation call is made, GLFW returns\n  the Vulkan error code most appropriate for the error.  Appropriate use of\n  @ref glfwVulkanSupported and @ref glfwGetRequiredInstanceExtensions should\n  eliminate almost all occurrences of these errors.\n\n  @remark @macos GLFW prefers the `VK_EXT_metal_surface` extension, with the\n  `VK_MVK_macos_surface` extension as a fallback.  The name of the selected\n  extension, if any, is included in the array returned by @ref\n  glfwGetRequiredInstanceExtensions.\n\n  @remark @macos This function creates and sets a `CAMetalLayer` instance for\n  the window content view, which is required for MoltenVK to function.\n\n  @remark @x11 By default GLFW prefers the `VK_KHR_xcb_surface` extension,\n  with the `VK_KHR_xlib_surface` extension as a fallback.  You can make\n  `VK_KHR_xlib_surface` the preferred extension by setting the\n  [GLFW_X11_XCB_VULKAN_SURFACE](@ref GLFW_X11_XCB_VULKAN_SURFACE_hint) init\n  hint.  The name of the selected extension, if any, is included in the array\n  returned by @ref glfwGetRequiredInstanceExtensions.\n\n  @thread_safety This function may be called from any thread.  For\n  synchronization details of Vulkan objects, see the Vulkan specification.\n\n  @sa @ref vulkan_surface\n  @sa @ref glfwGetRequiredInstanceExtensions\n\n  @since Added in version 3.2.\n\n  @ingroup vulkan"]
+    pub fn glfwCreateWindowSurface(
+        instance: VkInstance,
+        window: *mut GLFWwindow,
+        allocator: *const VkAllocationCallbacks,
+        surface: *mut VkSurfaceKHR,
+    ) -> VkResult;
 }

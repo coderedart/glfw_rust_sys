@@ -1,5 +1,6 @@
 fn main() {
     println!("cargo:rerun-if-changed=build.rs");
+
     let features = Features::default();
     #[allow(unused)]
     let out_dir = std::env::var("OUT_DIR").expect("failed to get out dir");
@@ -14,6 +15,8 @@ fn main() {
     // build from src, instead of using prebuilt-libraries
     #[cfg(feature = "src_build")]
     build_from_src(features, &out_dir);
+    #[cfg(not(feature = "src_build"))]
+    download_libs(features, &out_dir);
     // emit the linker flags
     if features.static_link {
         println!("cargo:rustc-link-lib=static=glfw3");
@@ -81,10 +84,10 @@ impl Default for Features {
             },
             wayland: cfg!(feature = "wayland"),
             x11: cfg!(feature = "x11"),
-            egl: cfg!(feature = "egl"),
+            egl: cfg!(feature = "native_egl"),
             osmesa: cfg!(feature = "osmesa"),
             bindings: cfg!(feature = "bindings"),
-            gl: cfg!(feature = "gl"),
+            gl: cfg!(feature = "native_gl"),
         }
     }
 }
@@ -130,6 +133,14 @@ fn generate_bindings(features: Features, out_dir: &str) {
     let glfw_header = include_str!("./glfw/include/GLFW/glfw3.h");
     let mut bindings = bindgen::Builder::default();
     let vulkan_include = if features.vulkan {
+        match features.os {
+            TargetOs::Win => {
+                let vulkan_sdk_dir =
+                    std::env::var("VULKAN_SDK").expect("failed to get vulkan sdk dir");
+                bindings = bindings.clang_arg(format!("-I{vulkan_sdk_dir}/Include"));
+            }
+            _ => {}
+        };
         "#define GLFW_INCLUDE_VULKAN\n"
     } else {
         ""
@@ -144,22 +155,30 @@ fn generate_bindings(features: Features, out_dir: &str) {
         match features.os {
             TargetOs::Win => {
                 native_include.push_str("#define GLFW_EXPOSE_NATIVE_WIN32\n");
-                native_include.push_str("#define GLFW_EXPOSE_NATIVE_WGL\n");
+                if features.gl {
+                    native_include.push_str("#define GLFW_EXPOSE_NATIVE_WGL\n");
+                }
             }
             TargetOs::Mac => {
                 native_include.push_str("#define GLFW_EXPOSE_NATIVE_COCOA\n");
-                native_include.push_str("#define GLFW_EXPOSE_NATIVE_NSGL\n");
+                if features.gl {
+                    native_include.push_str("#define GLFW_EXPOSE_NATIVE_NSGL\n");
+                }
             }
             _ => {
-                if features.egl {
-                    native_include.push_str("\n#define GLFW_EXPOSE_NATIVE_EGL\n");
-                }
                 if features.wayland {
                     native_include.push_str("#define GLFW_EXPOSE_NATIVE_WAYLAND\n");
                 }
+                // egl can be enabled explicitly for x11. or just implicitly via gl + wayland
+                if features.egl || (features.gl && features.wayland) {
+                    native_include.push_str("\n#define GLFW_EXPOSE_NATIVE_EGL\n");
+                }
+
                 if features.x11 {
                     native_include.push_str("#define GLFW_EXPOSE_NATIVE_X11\n");
-                    native_include.push_str("#define GLFW_EXPOSE_NATIVE_GLX\n");
+                    if features.gl {
+                        native_include.push_str("#define GLFW_EXPOSE_NATIVE_GLX\n");
+                    }
                 }
                 if features.osmesa {
                     native_include.push_str("\n#define GLFW_EXPOSE_NATIVE_OS_MESA\n");
@@ -181,10 +200,76 @@ fn generate_bindings(features: Features, out_dir: &str) {
     for item in DUPLICATE_ITEMS {
         bindings = bindings.blocklist_item(item);
     }
+
     bindings
         .merge_extern_blocks(true)
+        .allowlist_file(".*glfw3\\.h")
         .generate()
         .expect("failed to generate bindings")
         .write_to_file(format!("{out_dir}/bindings.rs"))
         .expect("failed to write bindings to out_dir/bindings.rs");
+}
+
+#[cfg(not(feature = "src_build"))]
+fn download_libs(features: Features, out_dir: &str) {
+    const URL: &str = "https://github.com/glfw/glfw/releases/download/3.4";
+    let zip_name: &str = match features.os {
+        TargetOs::Win => {
+            let arch = std::env::var("CARGO_CFG_TARGET_ARCH").unwrap();
+            if arch == "x86" {
+                "glfw-3.4.bin.WIN32"
+            } else {
+                assert_eq!(arch, "x86_64");
+                "glfw-3.4.bin.WIN64"
+            }
+        }
+        TargetOs::Mac => "glfw-3.4.bin.MACOS",
+        _ => {
+            return;
+        }
+    };
+    let url = format!("{}/{}.zip", URL, zip_name);
+    let curl_status = std::process::Command::new("curl")
+        .current_dir(out_dir)
+        .args(["--progress-bar", "--fail", "-L", &url, "-o", "glfw.zip"])
+        .status();
+
+    assert!(
+        curl_status.expect("failed to run curl command").success(),
+        "curl failed to download {url} and store it in {out_dir:?}"
+    );
+    println!("downloaded impeller library from {url} and stored it in {out_dir:?}");
+    let mut command = if cfg!(unix) {
+        std::process::Command::new("unzip")
+    } else {
+        let mut command = std::process::Command::new("tar");
+        command.arg("-xvf");
+        command
+    };
+    let tar_status = command.arg("glfw.zip").current_dir(&out_dir).status();
+    assert!(
+        tar_status
+            .expect("failed to run tar/unzip command")
+            .success(),
+        "tar failed to extract zip and store it in {out_dir:?}"
+    );
+    println!("extracted glfw library from zip and stored it in {out_dir:?}");
+    let lib_dir = std::path::Path::new(out_dir).join(zip_name);
+    match features.os {
+        TargetOs::Win => {
+            println!(
+                "cargo:rustc-link-search=native={}",
+                lib_dir.join("lib-vc2022").display()
+            );
+        }
+        TargetOs::Mac => {
+            println!(
+                "cargo:rustc-link-search=native={}",
+                lib_dir.join("lib-universal").display()
+            );
+        }
+        _ => {
+            unimplemented!()
+        }
+    }
 }

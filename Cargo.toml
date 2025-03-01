@@ -3,43 +3,38 @@ name = "glfw_rust_sys"
 version = "0.1.0"
 edition = "2021"
 links = "glfw"
+include = ["./glfw/include/GLFW/glfw3.h"]
 
 [features]
-default = ["x11", "wayland", "gl"]
-# static link
-static_link = []
-gl = []
+default = ["all"]
+all = ["x11", "wayland", "native_handles", "native_gl", "native_egl", "vulkan"]
 
-# generate bindings at build time. 
+# generate bindings at build time, instead of using pre-generated bindings. 
 bindings = ["dep:bindgen"]
-
-
+# build from source, instead of using prebuilt libraries.
+src_build = ["dep:cmake"]
+# static link (if on linux, src_build must also be enabled)
+static_link = []
 # enable vulkan support for convenient create surface function
-vulkan = ["bindings"]
+vulkan = []
 # enable wayland handles
 wayland = []
 # enable x11 handles
 x11 = []
-
-# native handles like window id or display connection
-# useful for raw-window-handle support.
-# includes win32 for windows, ns handle for mac
-# x11/wayland for linux decided by separate features. 
-native_handles = ["bindings"]
-
-# expose native gl context. wgl for windows. nsgl for mac. glx for x11. egl for wayland.
-native_gl = [] 
+# exposes functions to get native window handles (win32 HWND, x11 window id  etc..)
+# useful for raw-window-handle .
+native_handles = []
+# this exposes "native gl contexts" (wgl, nsgl, glx, egl etc..)
+# rarely used in practice.
+native_gl = []
 # explicitly enable egl. useful when you want to choose between glx or egl for x11 at runtime.
-egl = ["native_handles", "native_gl"]
-
-
+native_egl = []
 # I have no idea what osmesa is.
-osmesa = ["native_handles"]
-# build from source, instead of using prebuilt libraries.
-src_build = ["dep:cmake"]
+osmesa = []
+
 
 [dependencies]
 
 [build-dependencies]
-bindgen = {version = "0.71", optional = true}
-cmake = {version = "0.1", optional = true}
+bindgen = { version = "0.71", optional = true }
+cmake = { version = "0.1", optional = true }
