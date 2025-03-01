@@ -16,6 +16,7 @@ pub use sys::*;
 
 #[cfg(not(feature = "bindings"))]
 #[allow(unused)] // for type aliases. type aliases inside extern blocks are not allowed yet.
+#[allow(clippy::upper_case_acronyms)]
 mod native {
     use super::*;
     type HWND = *mut std::ffi::c_void;

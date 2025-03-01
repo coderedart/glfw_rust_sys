@@ -259,7 +259,7 @@ fn download_libs(features: Features, out_dir: &str) {
         command.arg("-xvf");
         command
     };
-    let tar_status = command.arg("glfw.zip").current_dir(&out_dir).status();
+    let tar_status = command.arg("glfw.zip").current_dir(out_dir).status();
     assert!(
         tar_status
             .expect("failed to run tar/unzip command")
