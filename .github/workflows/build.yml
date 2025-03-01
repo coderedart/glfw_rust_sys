@@ -57,7 +57,11 @@ jobs:
       - name: Check gen_bindings.sh script
         shell: bash
         run: |
-          curl --proto '=https' --tlsv1.2 -LsSf https://github.com/rust-lang/rust-bindgen/releases/download/v0.71.1/bindgen-cli-installer.sh | sh
+          if [ "$RUNNER_OS" == "Windows" ]; then
+            cargo install bindgen-cli
+          else
+            curl --proto '=https' --tlsv1.2 -LsSf https://github.com/rust-lang/rust-bindgen/releases/download/v0.71.1/bindgen-cli-installer.sh | sh
+          fi
           ./gen_bindings.sh ./bindings.rs
           diff -ub ./src/sys.rs ./bindings.rs || true # to avoid failing the build if there's any differences
 
