@@ -27,4 +27,4 @@ esac
 
 
 # allowlist-file to only include what we actually need (skip most items from other headers like vulkan)
-bindgen --merge-extern-blocks --raw-line="$PREPEND" --allowlist-file=".*glfw3\.h" -o "$OUTPUT_PATH" "$HEADER_PATH" -- $CLANG_ARGS
+bindgen --merge-extern-blocks --default-macro-constant-type signed --raw-line="$PREPEND" --allowlist-file=".*glfw3\.h" -o "$OUTPUT_PATH" "$HEADER_PATH" -- $CLANG_ARGS

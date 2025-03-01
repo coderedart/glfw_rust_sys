@@ -215,6 +215,7 @@ fn generate_bindings(features: Features, out_dir: &str) {
 
     bindings
         .merge_extern_blocks(true)
+        .default_macro_constant_type(bindgen::MacroTypeVariation::Signed)
         .allowlist_file(".*glfw3\\.h")
         .generate()
         .expect("failed to generate bindings")
