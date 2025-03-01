@@ -154,6 +154,11 @@ fn generate_bindings(features: Features, out_dir: &str) {
         .unwrap_or("");
 
     if features.native {
+        if features.os == TargetOs::Mac {
+            bindings = bindings.clang_arg(
+                "-F/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/",
+            );
+        }
         match features.os {
             TargetOs::Win => {
                 native_include.push_str("#define GLFW_EXPOSE_NATIVE_WIN32\n");

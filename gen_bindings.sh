@@ -14,11 +14,16 @@ fi
 # GLFW_INCLUDE_VULKAN to vulkan convenience functions. requires vulkan headers.
 CLANG_ARGS="-DGLFW_INCLUDE_VULKAN"
 
-# on windows, append vulkan sdk include path to provide vulkan header location
+# on windows/mac, append vulkan sdk include path to provide vulkan header location
 case "$OSTYPE" in
-  msys*|cygwin*)  CLANG_ARGS="$CLANG_ARGS -I${VULKAN_SDK}/Include" ;;
+  msys*|cygwin*|darwin*)  CLANG_ARGS="$CLANG_ARGS -I${VULKAN_SDK}/include" ;;
   *)         ;;
 esac
+# on mac, for glfw3native.h, add frameworks path for bindgen to correctly find ApplicationServices.h
+# case "$OSTYPE" in
+#   darwin*)  CLANG_ARGS="$CLANG_ARGS -F/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/System/Library/Frameworks/" ;;
+#   *)         ;;
+# esac
 
 
 # allowlist-file to only include what we actually need (skip most items from other headers like vulkan)

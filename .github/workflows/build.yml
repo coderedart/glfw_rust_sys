@@ -49,8 +49,16 @@ jobs:
           vulkan-query-version: latest
           vulkan-components: Vulkan-Headers
           vulkan-use-cache: true
-          
+
       - name: Generate Bindings
         shell: bash
         run: cargo clean && cargo run -vv --example=version --features=bindings
+      
+      - name: Check gen_bindings.sh script
+        shell: bash
+        run: |
+          curl --proto '=https' --tlsv1.2 -LsSf https://github.com/rust-lang/rust-bindgen/releases/download/v0.71.1/bindgen-cli-installer.sh | sh
+          ./gen_bindings.sh ./bindings.rs
+          diff ./src/sys.rs ./bindings.rs
+
       

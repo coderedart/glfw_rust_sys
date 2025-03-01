@@ -3,7 +3,6 @@ name = "glfw_rust_sys"
 version = "0.1.0"
 edition = "2021"
 links = "glfw"
-include = ["./glfw/include/GLFW/glfw3.h"]
 
 [features]
 default = ["all"]
