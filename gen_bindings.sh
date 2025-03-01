@@ -12,7 +12,7 @@ if [ ! -f $HEADER_PATH ]; then
     echo "cannot find $HEADER_PATH"
 fi
 # GLFW_INCLUDE_VULKAN to vulkan convenience functions. requires vulkan headers.
-CLANG_ARGS="-DGLFW_INCLUDE_VULKAN"
+CLANG_ARGS="-DGLFW_INCLUDE_VULKAN -DGLFW_INCLUDE_NONE"
 
 # on windows/mac, append vulkan sdk include path to provide vulkan header location
 case "$OSTYPE" in
