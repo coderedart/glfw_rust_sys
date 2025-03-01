@@ -21,10 +21,9 @@ fn main() {
     if features.static_link {
         println!("cargo:rustc-link-lib=static=glfw3");
     } else {
-        if features.os != TargetOs::Win {
-            println!("cargo:rustc-link-lib=dylib=glfw");
-        } else {
-            println!("cargo:rustc-link-lib=dylib=glfw3dll");
+        match features.os {
+            TargetOs::Win => println!("cargo:rustc-link-lib=dylib=glfw3dll"),
+            _ => println!("cargo:rustc-link-lib=dylib=glfw"),
         }
     }
     match features.os {
