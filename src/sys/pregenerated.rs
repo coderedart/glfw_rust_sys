@@ -4,6 +4,9 @@
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
 #![allow(non_snake_case)]
+#![allow(rustdoc::invalid_codeblock_attributes)]
+#![allow(rustdoc::invalid_rust_codeblocks)]
+#![allow(rustdoc::broken_intra_doc_links)]
 
 pub const GLFW_VERSION_MAJOR: i32 = 3;
 pub const GLFW_VERSION_MINOR: i32 = 4;

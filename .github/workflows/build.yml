@@ -63,6 +63,6 @@ jobs:
             curl --proto '=https' --tlsv1.2 -LsSf https://github.com/rust-lang/rust-bindgen/releases/download/v0.71.1/bindgen-cli-installer.sh | sh
           fi
           ./gen_bindings.sh ./bindings.rs
-          diff -ub ./src/sys.rs ./bindings.rs || true # to avoid failing the build if there's any differences
+          diff -ub ./src/sys/pregenerated.rs ./bindings.rs || true # to avoid failing the build if there's any differences
 
       

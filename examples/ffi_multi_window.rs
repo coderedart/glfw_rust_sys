@@ -1,3 +1,5 @@
+use glow::HasContext;
+
 //========================================================================
 // Simple multi-window example
 // Copyright (c) Camilla Löwy <elmindreda@glfw.org>
@@ -22,18 +24,21 @@
 //    distribution.
 //
 //========================================================================
-use std::ffi::{CStr, CString};
-
-use glfw_rust_sys::*;
-
-use gl11::*;
 fn main() {
+    use glfw_rust_sys::*;
+    use std::ffi::CStr;
+
     unsafe {
         let mut xpos = 0i32;
         let mut ypos = 0i32;
         let mut height = 0i32;
-        let mut description = std::ptr::null();
-        let mut windows = [std::ptr::null_mut(); 4];
+        let mut description: *const i8 = std::ptr::null();
+        let mut windows: [(*mut GLFWwindow, Option<glow::Context>); 4] = [
+            (std::ptr::null_mut(), None),
+            (std::ptr::null_mut(), None),
+            (std::ptr::null_mut(), None),
+            (std::ptr::null_mut(), None),
+        ];
 
         if glfwInit() != GLFW_TRUE {
             glfwGetError(&mut description);
@@ -119,22 +124,21 @@ fn main() {
 
             glfwMakeContextCurrent(win);
 
-            gl11::load_with(|s| {
-                let s = CString::new(s).unwrap();
+            let ctx = glow::Context::from_loader_function_cstr(|s| {
                 let result = glfwGetProcAddress(s.as_ptr())
                     .map(|p| p as _)
                     .unwrap_or(std::ptr::null());
-                std::mem::drop(s);
                 result
             });
 
-            ClearColor(colors[i].r, colors[i].g, colors[i].b, 1.0);
-            windows[i] = win;
+            ctx.clear_color(colors[i].r, colors[i].g, colors[i].b, 1.0);
+            windows[i] = (win, Some(ctx));
         }
         'outer: loop {
-            for win in windows.iter().copied() {
+            for (win, ctx) in windows.iter() {
+                let win = *win;
                 glfwMakeContextCurrent(win);
-                Clear(COLOR_BUFFER_BIT);
+                ctx.as_ref().unwrap().clear(glow::COLOR_BUFFER_BIT);
                 glfwSwapBuffers(win);
 
                 if glfwWindowShouldClose(win) == GLFW_TRUE
@@ -147,7 +151,7 @@ fn main() {
         }
         // shutdown
         glfwMakeContextCurrent(std::ptr::null_mut());
-        for w in windows.into_iter() {
+        for (w, _) in windows.into_iter() {
             glfwDestroyWindow(w);
         }
         glfwTerminate();

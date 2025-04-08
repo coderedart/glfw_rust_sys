@@ -1,0 +1,15 @@
+[package]
+name = "glfw_rust"
+version = "0.1.0"
+edition = "2021"
+
+[features]
+default = ["rwh"]
+rwh = ["dep:raw-window-handle"]
+
+[dependencies]
+tracing = {version = "*", default-features = false}
+bitflags = {version = "*"}
+tinyvec = {version = "*", features = ["std"]}
+glfw_rust_sys = {version = "*", path = "../.."}
+raw-window-handle = {version = "*", optional = true}

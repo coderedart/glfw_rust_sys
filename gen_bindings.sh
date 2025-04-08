@@ -5,7 +5,10 @@ OUTPUT_PATH="$1"
 PREPEND="#![allow(unused)]
 #![allow(non_upper_case_globals)]
 #![allow(non_camel_case_types)]
-#![allow(non_snake_case)]"
+#![allow(non_snake_case)]
+#![allow(rustdoc::invalid_codeblock_attributes)]
+#![allow(rustdoc::invalid_rust_codeblocks)]
+#![allow(rustdoc::broken_intra_doc_links)]"
 
 HEADER_PATH="./glfw/include/GLFW/glfw3.h"
 if [ ! -f $HEADER_PATH ]; then
